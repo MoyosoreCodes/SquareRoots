@@ -1,0 +1,52 @@
+@{
+    ViewData["Title"] = "Finding  the Square root of two numbers";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome, Please Enter Two numbers</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+@{
+    if ((ViewBag.Result1 != null) && (ViewBag.Result2 != null))
+    {       
+      if ((ViewBag.Result3 <= 0) || (ViewBag.Result4 <= 0))
+      {
+          <div>
+              <p>Error number is less than or equal to 0</p>
+          </div>
+      }
+      else if(ViewBag.Result1 == ViewBag.Result2)
+      {
+          <div>
+              <p>
+                  Please Enter another Value
+              </p>
+          </div>
+      }
+      else if ( ViewBag.Result1 > ViewBag.Result2)
+       {
+            <div>
+            <p> The number @ViewBag.Result3 with Square root @ViewBag.Result1 has a higher square root than the number @ViewBag.Result4 with square root @ViewBag.Result2 </p>
+            </div>
+       }
+
+       else
+       {
+            <div>
+            <p> The number @ViewBag.Result4 with square root @ViewBag.Result2 has a higher square root than the number @ViewBag.Result3 with Square root @ViewBag.Result1 </p>
+            </div>
+       }
+    }
+}
+
+<form asp-controller = "SquareRoot"  asp-action =  "Roots"  method = "POST">
+    <input type="number" placeholder ="First Number" name = "FirstNum"/>
+    <input type="number" placeholder ="Second Number" name = "SecondNum"/>
+
+    <div class="button">
+        <button type= "submit" >Submit</button>
+    </div>
+    
+</form>
